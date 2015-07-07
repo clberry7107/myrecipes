@@ -11,7 +11,7 @@
     <span class="picture">
       <%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/png' %>
     </span>
-    
+   
     <%= f.submit(@recipe.new_record? ? 'Add Recipe':'Update Recipe', class: "btn btn-success") %>
     <% end %>
     
