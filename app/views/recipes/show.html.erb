@@ -19,8 +19,9 @@
         <strong>Steps:</strong>
       </p>
       <%= simple_format(@recipe.description) %>
+      <%= render 'recipes/like', obj: @recipe %>
     </div>
   </div>
 </div>
 
-<h5><%= link_to "Return to Recipes Listin", recipes_path, class: "btn btn-warning btn-small" %></h5>
+<h5><%= link_to "Return to Recipes Listing", recipes_path, class: "btn btn-warning btn-small" %></h5>
