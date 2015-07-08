@@ -13,11 +13,11 @@ class Recipe < ActiveRecord::Base
   
   
   def thumbs_up_total
-    self.likes.where(like: true).size
+    self.likes.where(like: true).count
   end
   
   def thumbs_down_total
-    self.likes.where(like: false).size
+    self.likes.where(like: false).count
   end
   
   
