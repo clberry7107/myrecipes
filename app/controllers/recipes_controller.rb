@@ -1,10 +1,9 @@
 class RecipesController < ApplicationController
   
   before_action :set_recipe, only: [:edit, :update, :show]
-  before_action :require_user, except: [:show, :index, :like]
+  before_action :require_user, except: [:show, :index]
   before_action :require_same_user, only: [:edit, :update]
 
-  
   def index
     @recipes = Recipe.paginate(page: params[:page], per_page: 4)
   end
@@ -18,6 +17,7 @@ class RecipesController < ApplicationController
   end
   
   def create
+    @recipe = Recipe.create(recipe_params)
     @recipe.chef = current_user
     
     if @recipe.save 
@@ -42,17 +42,12 @@ class RecipesController < ApplicationController
   end
   
   def like
-    if logged_in?
-      like = Like.create(like: params[:like], chef: current_user, recipe:  @recipe)
-      if like.valid?
-        flash[:success] = "Your selection was successful"
-        redirect_to :back
-      else
-        flash[:danger] = "you can only vote on a recipe once"
-        redirect_to :back
-      end
+    like = Like.create(like: params[:like], chef: current_user, recipe: @recipe)
+    if like.valid?
+      flash[:success] = "Your selection was successful"
+      redirect_to :back
     else
-      flash[:danger] = "Voting is reserved for users.  Please sign up if you wish to vote."
+      flash[:danger] = "you can only vote on a recipe once"
       redirect_to :back
     end
   end
