@@ -1,3 +1,4 @@
-Fix Like feature
-
--when clicked it should add recipe_id to record (it is not)
+POTENTIAL BUG ISSUE:
+  -when creating the recipe_ingredients table I entered the columns wrong
+  -while attempting to fix the issue I deleted the migration that creates the table
+  -before deploying app that file needs to be recreated
