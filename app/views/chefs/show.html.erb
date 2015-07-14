@@ -16,7 +16,10 @@
   <% @recipes.each do |recipe| %>
     <div class="row">
       <div class="col-lg-6 well col-lg-offset-3">
-        <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
+        <h4><%= link_to recipe.name.capitalize, recipe_path(recipe) %></h4>
+        
+        <p>Styles: <%= render recipe.styles %> </p>
+        <p>Ingredients: <%= render recipe.ingredients %> </p>
         <p><%= recipe.summary %></p>
         <p>
           <span class='quiet'><small>updated: <%= time_ago_in_words(recipe.updated_at) %> ago</small></span><br/>
