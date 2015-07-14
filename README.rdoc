@@ -1,4 +1,22 @@
-POTENTIAL BUG ISSUE:
-  -when creating the recipe_ingredients table I entered the columns wrong
-  -while attempting to fix the issue I deleted the migration that creates the table
-  -before deploying app that file needs to be recreated
+Reviews feature -as branch
+
+Things needed
+- migration to create reviews table, body, type = text_field, two foreign keys, reference chef_id, reference recipe_id
+- build the Review model
+- create tests for spec, add validations to the review model
+- build associations, has_many and belongs_to
+- test out association in rails console
+-- recipe.reviews
+-- chef.reviews
+- recipe show page, add reviews
+- create routes - resources :reviews
+- create form_for using existing code
+- 
+
+-FOR LOGGED IN CHEFS
+-ability to write a review
+-ability to like/agree or dislike/disagree with review
+
+
+-FOR ALL USERS
+-ability to see reviews
